@@ -17,15 +17,15 @@ import minidataset
 #    label_train = np.array(hf.get('label'))
 
 ##split in  and testset
-data_train,label_train,data_test,label_test=minidataset.extract('../../dataset_impl/patches4',0,0,15)#0,0
+data_train,label_train,data_test,label_test=minidataset.extract('../../dataset_impl/patches4',20,6,15)#0,0
 data_provider=image_util.SimpleDataProvider(data_train, label_train, channels_in=5,channels_out=4, n_class =16 )
 
 
 
 ##setup & training
 net = unet.Unet(channels_in=5,channels_out=4, n_class =16)
-trainer = unet.Trainer(net, batch_size=5, optimizer="adam")#10
-path = trainer.train(data_provider, "prediction", training_iters=100, epochs=6) #51-100
+trainer = unet.Trainer(net, batch_size=1, optimizer="momentum")#10
+path = trainer.train(data_provider, "prediction", training_iters=20, epochs=6) #51-100
 
 #verification
 
