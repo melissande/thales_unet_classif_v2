@@ -24,8 +24,8 @@ data_provider=image_util.SimpleDataProvider(data_train, label_train, channels_in
 
 ##setup & training
 net = unet.Unet(channels_in=5,channels_out=4, n_class =16)
-trainer = unet.Trainer(net, batch_size=1, optimizer="adam")#10
-path = trainer.train(data_provider, "prediction", training_iters=10, epochs=2) #51-100
+trainer = unet.Trainer(net, batch_size=5, optimizer="adam")#10
+path = trainer.train(data_provider, "prediction", training_iters=100, epochs=6) #51-100
 
 #verification
 
