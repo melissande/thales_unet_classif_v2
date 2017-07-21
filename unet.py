@@ -34,7 +34,7 @@ from layers import (weight_variable, weight_variable_devonc, bias_variable,
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s %(message)s')
 
-def create_conv_net(x, keep_prob, channels_in,channels_out, n_class, layers=3, features_root=16, filter_size=3, pool_size=2, summaries=True):
+def create_conv_net(x, keep_prob, channels_in,channels_out, n_class, layers=2, features_root=16, filter_size=3, pool_size=2, summaries=True):
     """
     Creates a new convolutional unet for the given parametrization.
     
